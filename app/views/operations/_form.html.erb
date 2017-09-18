@@ -1,0 +1,8 @@
+<%= simple_form_for @operation do |f| %>
+    <%= f.input :name, label: "Nazwa operacji" %>
+    <%= f.input :description, label: "Opis operacji" %>
+    <%= f.association :machine, label: "Maszyna" %>
+    <%= f.input :efficiency_per_shift, label: "Wydajność na zmianę" %>
+    <%= f.input :element_id, as: :hidden, input_html: { value: @element.id } %>
+    <%= f.button :submit, 'Zapisz', class: "btn btn-primary" %> <%= link_to  "Anuluj", element_path(@element), class: "btn btn-success" %>
+<% end %>

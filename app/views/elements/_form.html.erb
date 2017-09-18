@@ -1,0 +1,7 @@
+<%= simple_form_for @element do |f| %>
+    <%= f.input :name, label: "Nazwa elementu" %>
+    <%= f.input :internal_id_number, label: "Numer SWING" %>
+    <%= f.input :quantity_per_set, label: "Ilość w komplecie" %>
+    <%= f.input :product_id, as: :hidden, input_html: { value: @product.id } %>
+    <%= f.button :submit, 'Zapisz', class: "btn btn-primary" %> <%= link_to  "Anuluj", product_path(@product), class: "btn btn-success" %>
+<% end %>

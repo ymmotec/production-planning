@@ -1,0 +1,48 @@
+<h3>Lista maszyn</h3>
+<% if user_signed_in? %>
+<%= link_to  "Dodaj nową maszynę", new_machine_path, class: "btn btn-success" %>
+<% else %>
+Zaloguj się by dodać maszyny
+<% end %>
+
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nazwa maszyny</th>
+                <th>Fabryka</th>
+                <th>Czasy uzupełniające</th>
+                <th>Czasy awarii</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @machines.each do |machine| %>
+                <tr>
+                    <td>
+                        <%= machine.id %>
+                    </td>
+                    <td>
+                        <%= machine.name %>
+                    </td>
+                    <td>
+                        <%= machine.factory %>
+                    </td>
+                    <td>
+                        <%= display_as_percent(machine.aditional_times) %>
+                    </td>
+                    <td>
+                        <%= display_as_percent(machine.down_times) %>
+                    </td>
+                    <td>
+                        <%= link_to  "Pokaż", machine_path(machine), class: "btn btn-default btn-xs" %>
+                        <% if user_signed_in? %>
+                            <%= link_to  "Edytuj", edit_machine_path(machine), class: "btn btn-primary btn-xs" %>
+                            <%= link_to  "Usuń", machine_path(machine), method: :delete, class: "btn btn-danger btn-xs" %>
+                        <% end %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>

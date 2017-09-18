@@ -1,0 +1,23 @@
+<h1>StockFile#index</h1>
+<p>Find me in app/views/stock_file/index.html.erb</p>
+
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Data stanu magazynowego</th>
+            <th>Plik</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @stock_files.each do |stock_file| %>
+        <tr>
+            <td><%= stock_file.id %></td>
+            <td><%= stock_file.stock_date %></td>
+            <td><%= stock_file.file %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+

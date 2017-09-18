@@ -1,0 +1,47 @@
+
+<h3>Produkt: <%= @element.product.name %></h3>
+<h4>Element: <%= @element.name %></h4>
+<h4>Ilość elementów w komplecie: <%= @element.quantity_per_set %></h4>
+<h4>Numer elementu: <%= @element.internal_id_number %></h4>
+<%= link_to  "Wróć do produktu", product_path(@element.product_id), class: "btn btn-success" %>
+
+<hr>
+
+<h3>Lista operacji</h3>
+<% if user_signed_in? %>
+    <%= link_to  "Dodaj operację", add_operation_element_path(@element.id), class: "btn btn-primary" %>
+<% else %>
+    Zaloguj się by dodać operacje
+<% end %>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nazwa operacji</th>
+            <th>Maszyna</th>
+            <th>Wydajność na zmianę</th>
+            <th>Czas cyklu</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @element.operations.each do |operation| %>
+        <tr>
+            <td><%= operation.id %></td>
+            <td><%= operation.name %></td>
+            <td><%= operation.machine.name %></td>
+            <td><%= operation.efficiency_per_shift %></td>
+            <td><%= operation.cycle_time %></td>
+            <td>
+                <% if user_signed_in? %>
+                    <%= link_to  "Edytuj", edit_operation_path(operation), class: "btn btn-primary btn-xs" %>
+                    <%= link_to  "Usuń", operation_path(operation), method: :delete, class: "btn btn-danger btn-xs" %>
+                <% else %>
+                    Akcje dostępne po zalogowaniu.
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

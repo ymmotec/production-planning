@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  internal_id_number: MyString
+  quantity_pet_set: 1
+  product_id: 1
+
+two:
+  name: MyString
+  internal_id_number: MyString
+  quantity_pet_set: 1
+  product_id: 1

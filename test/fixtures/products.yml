@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  ikea_number: 1
+  swing_number: MyString
+
+two:
+  name: MyString
+  ikea_number: 1
+  swing_number: MyString

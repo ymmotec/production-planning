@@ -1,0 +1,8 @@
+<%= simple_form_for @product do |f| %>
+    <%= f.input :name, label: "Nazwa produktu" %>
+    <%= f.input :customer_id_number, label: "Numer klienta" %>
+    <%= f.input :internal_id_number, label: "Numer swing" %>
+    <%= f.input :color, label: "Kolor" %>
+    <%= f.input :quantity_on_palet, label: "Ilość na palecie" %>
+    <%= f.button :submit, 'Zapisz', class: "btn btn-primary" %> <%= link_to  "Anuluj", products_path, class: "btn btn-success" %>
+<% end %>

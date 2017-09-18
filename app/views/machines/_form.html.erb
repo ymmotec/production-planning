@@ -1,0 +1,7 @@
+<%= simple_form_for @machine do |f| %>
+    <%= f.input :name, label: "Nazwa maszyny" %>
+    <%= f.input :factory, label: "Fabryka" %>
+    <%= f.input :aditional_times, label: "Czasy uzupełniające" %>
+    <%= f.input :down_times, label: "Czasy awarii" %>
+    <%= f.button :submit, 'Zapisz', class: "btn btn-primary" %>
+<% end %>
