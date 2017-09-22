@@ -4,4 +4,5 @@ class Product < ApplicationRecord
 
     has_many :elements
     has_many :stocks
+    belongs_to :product_family
 end

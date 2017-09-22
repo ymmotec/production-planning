@@ -1,0 +1,32 @@
+<h3>Lista rodzin produktów</h3>
+<% if user_signed_in? %>
+<%= link_to  "Dodaj nową rodzinę produktów", new_product_family_path, class: "btn btn-success" %>
+<% else %>
+Zaloguj się by dodać nową rodzinę produktów
+<% end %>
+
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nazwa rodziny produktów</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @product_families.each do |product_family|%>
+            <tr>
+                <td><%= product_family.id %></td>
+                <td><%= product_family.name %></td>
+                <td>
+                    <%= link_to  "Pokaż", product_family_path(product_family), class: "btn btn-default btn-xs" %>
+                    <% if user_signed_in?%>
+                        <%= link_to  "Edytuj", edit_product_family_path(product_family), class: "btn btn-primary btn-xs" %>
+                        <%= link_to  "Usuń", product_family_path(product_family), method: :delete, class: "btn btn-danger btn-xs" %>
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

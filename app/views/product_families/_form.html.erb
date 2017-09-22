@@ -1,0 +1,4 @@
+<%= simple_form_for @product_family do |f| %>
+    <%= f.input :name, label: "Nazwa rodziny produktów" %>
+    <%= f.button :submit, "Zapisz", class: "btn btn-primary" %> <%= link_to  "Anuluj", product_families_path, class: "btn btn-success" %>
+<% end %>

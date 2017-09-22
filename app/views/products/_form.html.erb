@@ -1,5 +1,6 @@
 <%= simple_form_for @product do |f| %>
     <%= f.input :name, label: "Nazwa produktu" %>
+    <%= f.association :product_family %>
     <%= f.input :customer_id_number, label: "Numer klienta" %>
     <%= f.input :internal_id_number, label: "Numer swing" %>
     <%= f.input :color, label: "Kolor" %>
