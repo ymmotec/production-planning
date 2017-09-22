@@ -11,6 +11,7 @@
         <tr>
             <th>#</th>
             <th>Nazwa produktu</th>
+            <th>Rodzina</th>
             <th>Numer klienta</th>
             <th>Numer Swing</th>
             <th>Kolor</th>
@@ -27,6 +28,7 @@
             <tr>
                 <td><%= product.id %></td>
                 <td><%= product.name %></td>
+                <td><%= product.product_family.name %></td>
                 <td><%= product.customer_id_number %></td>
                 <td><%= product.internal_id_number %></td>
                 <td><%= product.color %></td>
