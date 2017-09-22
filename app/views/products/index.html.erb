@@ -15,6 +15,10 @@
             <th>Numer Swing</th>
             <th>Kolor</th>
             <th>Ilość na palecie</th>
+            <th>Min. produkcja</th>
+            <th>Max. produkcja</th>
+            <th>Min. zapas</th>
+            <th>Max. zapas</th>
             <th>Akcje</th>
         </tr>
     </thead>
@@ -27,10 +31,14 @@
                 <td><%= product.internal_id_number %></td>
                 <td><%= product.color %></td>
                 <td><%= product.quantity_on_palet %></td>
+                <td><%= product.min_production %></td>
+                <td><%= product.max_production %></td>
+                <td><%= product.min_stock %></td>
+                <td><%= product.max_stock %></td>
                 <td>
-                    <%= link_to  "Pokaż", product_path(product), class: "btn btn-default btn-xs"  %>
+                    <%= link_to  "Pokaż", product_path(product), class: "btn btn-default btn-xs"  %><br>
                     <% if user_signed_in? %>
-                        <%= link_to  "Edytuj", edit_product_path(product), class: "btn btn-primary btn-xs" %>
+                        <%= link_to  "Edytuj", edit_product_path(product), class: "btn btn-primary btn-xs" %><br>
                         <%= link_to  "Usuń", product_path(product), method: :delete, class: "btn btn-danger btn-xs", data: { confirm: "Czy na pewno chcesz usunąć ten produkt" } %>
                     <% end %> 
                 </td>

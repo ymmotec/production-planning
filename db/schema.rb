@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170922055256) do
+ActiveRecord::Schema.define(version: 20170922090341) do
 
   create_table "elements", force: :cascade do |t|
     t.string "name"
@@ -58,6 +58,10 @@ ActiveRecord::Schema.define(version: 20170922055256) do
     t.string "color"
     t.integer "quantity_on_palet"
     t.integer "product_family_id"
+    t.integer "min_production"
+    t.integer "max_production"
+    t.integer "min_stock"
+    t.integer "max_stock"
   end
 
   create_table "stock_files", force: :cascade do |t|

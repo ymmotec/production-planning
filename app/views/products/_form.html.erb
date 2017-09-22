@@ -5,5 +5,9 @@
     <%= f.input :internal_id_number, label: "Numer swing" %>
     <%= f.input :color, label: "Kolor" %>
     <%= f.input :quantity_on_palet, label: "Ilość na palecie" %>
+    <%= f.input :min_production, label: "Minimalna partia produkcyjna" %>
+    <%= f.input :max_production, label: "Maksymalna partia produkcyjna" %>
+    <%= f.input :min_stock, label: "Minimalny zapas magazynowy" %>
+    <%= f.input :max_stock, label: "Maksymalny zapas magazynowy" %>
     <%= f.button :submit, 'Zapisz', class: "btn btn-primary" %> <%= link_to  "Anuluj", products_path, class: "btn btn-success" %>
 <% end %>
