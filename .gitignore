@@ -9,6 +9,8 @@ capybara-*.html
 /coverage/
 /spec/tmp
 /.vscode
+/public/uploads/stock_file
+/public/uploads/tmp
 *.orig
 rerun.txt
 pickle-email-*.html
