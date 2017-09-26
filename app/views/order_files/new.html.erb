@@ -1,0 +1,7 @@
+<h3>Wczytaj plik z zamówieniem</h3>
+
+<%= simple_form_for @order_file do |f| %>
+    <%= f.input :order_date, label: "Data zamówienia" %>
+    <%= f.input :file, label: "Wybierz plik", input_html: { accept: ".csv" } %>
+    <%= f.button :submit, "Wczytaj zamówienie", class: "btn btn-primary" %>
+<% end %>

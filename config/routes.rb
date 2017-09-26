@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  
+  resources :order_files
   resources :product_families
   resources :stock
   resources :stock_files

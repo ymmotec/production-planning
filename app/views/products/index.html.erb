@@ -6,6 +6,8 @@
     <p>Zaloguj się by dodać produkty</p>
 <% end %>
 
+
+
 <table class="table table-striped table-hover">
     <thead>
         <tr>
@@ -20,7 +22,7 @@
             <th>Max. produkcja</th>
             <th>Min. zapas</th>
             <th>Max. zapas</th>
-            <th>Akcje</th>
+            <!-- <th>Akcje</th> -->
         </tr>
     </thead>
     <tbody>
@@ -37,13 +39,14 @@
                 <td><%= product.max_production %></td>
                 <td><%= product.min_stock %></td>
                 <td><%= product.max_stock %></td>
-                <td>
-                    <%= link_to  "Pokaż", product_path(product), class: "btn btn-default btn-xs"  %><br>
+            </tr>
+            <tr>
+                <td colspan="11"> <%= link_to  "Pokaż", product_path(product), class: "btn btn-default btn-xs"  %>
+                    
                     <% if user_signed_in? %>
-                        <%= link_to  "Edytuj", edit_product_path(product), class: "btn btn-primary btn-xs" %><br>
+                        <%= link_to  "Edytuj", edit_product_path(product), class: "btn btn-primary btn-xs" %>
                         <%= link_to  "Usuń", product_path(product), method: :delete, class: "btn btn-danger btn-xs", data: { confirm: "Czy na pewno chcesz usunąć ten produkt" } %>
-                    <% end %> 
-                </td>
+                    <% end %> </td>
             </tr>
         <% end %>
     </tbody>
