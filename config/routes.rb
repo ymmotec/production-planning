@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
   
+  get 'orders/index'
+
   resources :order_files
   resources :product_families
   resources :stock

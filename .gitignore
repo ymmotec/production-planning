@@ -10,6 +10,7 @@ capybara-*.html
 /spec/tmp
 /.vscode
 /public/uploads/stock_file
+/public/uploads/order_file
 /public/uploads/tmp
 *.orig
 rerun.txt
