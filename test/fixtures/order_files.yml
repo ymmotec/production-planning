@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  file: MyString
+plik1:
+  id: 1
+  file: MyFirstFile
   order_date: 2017-09-26
+  # orders: one
 
-two:
-  file: MyString
+plik2:
+  id: 2
+  file: MySecondFile
   order_date: 2017-09-26
+  # orders: two

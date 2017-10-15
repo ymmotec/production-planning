@@ -28,6 +28,7 @@ class OperationsController < ApplicationController
   end
 
   def show
+    @operation = Operation.find(params[:id])
   end
 
   def operation_params

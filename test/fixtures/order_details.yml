@@ -1,16 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  product_id: 1
-  order_id: 1
+  product: linnmon
+  order: one
   rcv: MyString
   cty: MyString
   orig_qty: 1
   orig_date: 2017-10-05
 
 two:
-  product_id: 1
-  order_id: 1
+  product: two
+  order: two
   rcv: MyString
   cty: MyString
   orig_qty: 1

@@ -1,11 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  ikea_number: 1
-  swing_number: MyString
+linnmon:
+  name: Linnmon
+  id: 1
+  customer_id_number: 123
+  internal_id_number: First internal id number
+  product_family: LINNMON
 
 two:
-  name: MyString
-  ikea_number: 1
-  swing_number: MyString
+  name: Lack
+  id: 2
+  customer_id_number: 1
+  internal_id_number: second internal id number
+  product_family: LACK

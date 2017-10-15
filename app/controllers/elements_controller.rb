@@ -1,5 +1,6 @@
 class ElementsController < ApplicationController
   def index
+    @element = Element.all
   end
 
   def show

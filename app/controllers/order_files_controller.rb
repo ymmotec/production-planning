@@ -39,14 +39,11 @@ class OrderFilesController < ApplicationController
         data_to_import.each do |row|
           
           o = Order.where(order: row['Order']).first
-          if o.nil?
-            o = create_new_order(row['Order'], order_file_object_to_import.id)
-          end
+          o ||= create_new_order(row['Order'], order_file_object_to_import.id)
+          
           
           product = Product.where(customer_id_number: row['Art No']).first
-          if product.nil?
-            product = create_new_product(row['IKEA Desc'], row['Art No'])
-          end
+          product ||= create_new_product(row['IKEA Desc'], row['Art No'])
 
           order_details = OrderDetail.new()
           order_details.order = o
@@ -91,9 +88,7 @@ class OrderFilesController < ApplicationController
   def create_new_product(product_name, customer_id_number)
     
     product_family = ProductFamily.where(name: product_name.split.first.upcase ).first
-    if product_family.nil?
-      product_family = create_new_product_family(product_name.split.first.upcase)
-    end
+    product_family ||= create_new_product_family(product_name.split.first.upcase)
 
     product = Product.new
     product.customer_id_number = customer_id_number
@@ -101,7 +96,7 @@ class OrderFilesController < ApplicationController
     product.internal_id_number = "Brak"
     product.product_family = product_family
     product.save
-    return product
+    product
   end
 
   def create_new_product_family(product_family_name)
