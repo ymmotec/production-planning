@@ -31,7 +31,7 @@ class OrderFilesController < ApplicationController
    
     result = ImportOrder.new(order_file_object_to_import).call
     return result
-    
+
     rescue Errno::EISDIR
       didnt_chose_the_file
       return false
@@ -54,6 +54,7 @@ class OrderFilesController < ApplicationController
   def does_not_contain_required_headers
     @error_message = "Plik nie zawiera potrzebnych nagłówków!"
   end
+  
   def order_files_params
     params.require(:order_file).permit(:file, :order_date)
   end

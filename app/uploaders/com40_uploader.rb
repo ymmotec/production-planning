@@ -1,4 +1,4 @@
-class StockFileUploader < CarrierWave::Uploader::Base
+class Com40Uploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -40,7 +40,7 @@ class StockFileUploader < CarrierWave::Uploader::Base
   #   %w(jpg jpeg gif png)
   # end
   def extension_whitelist
-      %w( csv )
+    %w( csv )
   end
 
   # Override the filename of the uploaded files:
