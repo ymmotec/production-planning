@@ -1,7 +1,7 @@
 require 'csv'
 
 class ImportOrder
-    class DoesNotContainRequiredHeaders < StandardError; end
+    
     include AppService
     
 
@@ -37,11 +37,7 @@ class ImportOrder
     private
 
     def is_valid?
-        if contains_required_headers?(@required_headers, @data_to_import.headers)
-            return true
-        end
-        raise DoesNotContainRequiredHeaders
-        
+        contains_required_headers?(@required_headers, @data_to_import.headers)
     end
 
     def create_new_order(order_number, order_file_id)
