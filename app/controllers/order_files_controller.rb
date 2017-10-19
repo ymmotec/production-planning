@@ -28,10 +28,10 @@ class OrderFilesController < ApplicationController
 
   def import_orders(order_file_object_to_import)
     require 'csv'
-    # include AppService::CSVImport
-      # data_to_import = CSV.read("#{Rails.root}/public#{order_file_object_to_import.file.to_s}", :encoding =>  'windows-1250:utf-8', :headers => true, :col_sep => ';')
-      result = ImportOrder.new(order_file_object_to_import).call
-      return result
+   
+    result = ImportOrder.new(order_file_object_to_import).call
+    return result
+    
     rescue Errno::EISDIR
       didnt_chose_the_file
       return false
