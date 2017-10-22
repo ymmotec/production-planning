@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  
+  resources :com40s
+  resources :com40_files
   resources :orders
   resources :order_files
   resources :product_families

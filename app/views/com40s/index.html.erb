@@ -1,0 +1,23 @@
+<h3>Stan magazynu Com40</h3>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Data wczytanego pliku</th>
+            <th>Numer produktu</th>
+            <th>Nazwa produktu</th>
+            <th>Ilość w magazynie</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @com40_stocks.each do |row| %>
+        <tr>
+            <td><%= row.com40_file.stock_date %></td>
+            <td><%= row.product.customer_id_number %></td>
+            <td><%= row.product.name %></td>
+            <td><%= row.quantity_in_stock %></td>
+        </tr>
+
+        <% end %>
+    </tbody>
+</table>

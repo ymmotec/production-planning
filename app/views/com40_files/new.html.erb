@@ -1,0 +1,7 @@
+<h3>Wczytaj plik ze stanem magazynowym Com40</h3>
+
+<%= simple_form_for @com40_file do |f| %>
+    <%= f.input :stock_date, label: "Data stanu magazynowego" %>
+    <%= f.input :file, label: "Wybierz plik", input_html: {accept: ".csv"} %>
+    <%= f.button :submit, "Zapisz plik", class: "btn btn-primary" %>
+<% end %>
