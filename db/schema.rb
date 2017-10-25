@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019110340) do
+ActiveRecord::Schema.define(version: 20171025071656) do
 
   create_table "com40_files", force: :cascade do |t|
     t.string "file"
@@ -41,6 +41,36 @@ ActiveRecord::Schema.define(version: 20171019110340) do
     t.string "factory"
     t.decimal "aditional_times"
     t.decimal "down_times"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "open_order_details", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "order_id"
+    t.string "rcv"
+    t.string "cty"
+    t.integer "orig_qty"
+    t.integer "bal_qty"
+    t.date "orig_date"
+    t.string "sl"
+    t.integer "orig_week"
+    t.string "type"
+    t.integer "bkd_qty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "open_order_files", force: :cascade do |t|
+    t.string "file"
+    t.date "open_orders_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "open_orders", force: :cascade do |t|
+    t.string "order"
+    t.integer "open_order_file_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

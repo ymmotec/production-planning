@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  file: MyString
+  open_orders_date: 2017-10-25
+
+two:
+  file: MyString
+  open_orders_date: 2017-10-25

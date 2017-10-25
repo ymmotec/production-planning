@@ -6,5 +6,8 @@ class Product < ApplicationRecord
     has_many :stocks
     has_many :com40s
     has_many :order_details
+    has_many :open_order_details
+
     belongs_to :product_family
+    
 end

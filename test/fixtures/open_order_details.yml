@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_id: 1
+  order_id: 1
+  rcv: MyString
+  cty: MyString
+  orig_qty: 1
+  bal_qty: 1
+  orig_date: 2017-10-25
+  sl: MyString
+  orig_week: 1
+  type: 
+  bkd_qty: 1
+
+two:
+  product_id: 1
+  order_id: 1
+  rcv: MyString
+  cty: MyString
+  orig_qty: 1
+  bal_qty: 1
+  orig_date: 2017-10-25
+  sl: MyString
+  orig_week: 1
+  type: 
+  bkd_qty: 1
