@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :open_order_files
   resources :com40s
   resources :com40_files
   resources :orders

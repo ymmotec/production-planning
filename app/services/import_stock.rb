@@ -21,6 +21,8 @@ class ImportStock
         end
     end
 
+    private
+    
     def is_valid?
         contains_required_headers?(@required_headers, @data_to_import.headers)
     end

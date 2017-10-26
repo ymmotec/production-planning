@@ -27,7 +27,6 @@ class OrderFilesController < ApplicationController
   end
 
   def import_orders(order_file_object_to_import)
-    require 'csv'
    
     result = ImportOrder.new(order_file_object_to_import).call
     return result

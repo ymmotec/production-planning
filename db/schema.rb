@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025071656) do
+ActiveRecord::Schema.define(version: 20171025185809) do
 
   create_table "com40_files", force: :cascade do |t|
     t.string "file"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20171025071656) do
 
   create_table "open_order_details", force: :cascade do |t|
     t.integer "product_id"
-    t.integer "order_id"
+    t.integer "open_order_id"
     t.string "rcv"
     t.string "cty"
     t.integer "orig_qty"
