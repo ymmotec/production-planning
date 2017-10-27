@@ -1,0 +1,2 @@
+class Spi < ApplicationRecord
+end
