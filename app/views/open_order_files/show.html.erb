@@ -1,0 +1,41 @@
+<h3>Otwarte zlecenia z dnia <%= @open_order_file.open_orders_date %> ID pliku - <%= @open_order_file.id %></h3>
+
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Numer Zamówienia</th>
+            <th>Numer IKEA</th>
+            <th>Nazwa Produktu</th>
+            <th>Rcv</th>
+            <th>Cty</th>
+            <th>SL</th>
+            <th>Type</th>
+            <th>Orig week</th>
+            <th>Orig date</th>
+            <th>Orig Qty</th>
+            <th>Bal Qty</th>
+            <th>Bkd Qty</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @open_order_file.open_orders.each do |open_order| %>
+            <% open_order.open_order_details.each do |oo_detail| %>
+                <tr>
+                    <td><%= oo_detail.open_order.id %></td>
+                    <td><%= oo_detail.product.customer_id_number %></td>
+                    <td><%= oo_detail.product.name %></td>
+                    <td><%= oo_detail.rcv %></td>
+                    <td><%= oo_detail.cty %></td>
+                    <td><%= oo_detail.sl %></td>
+                    <td><%= oo_detail.mtype %></td>
+                    <td><%= oo_detail.orig_week %></td>
+                    <td><%= oo_detail.orig_date %></td>
+                    <td><%= oo_detail.orig_qty %></td>
+                    <td><%= oo_detail.bal_qty %></td>
+                    <td><%= oo_detail.bkd_qty %></td>
+                </tr>
+            <% end%>
+        <% end %>
+    </tbody>
+</table>

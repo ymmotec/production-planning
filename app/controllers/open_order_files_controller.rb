@@ -2,6 +2,10 @@ class OpenOrderFilesController < ApplicationController
   def index
     @open_order_files = OpenOrderFile.all
   end
+
+  def show
+    @open_order_file = OpenOrderFile.find(params[:id])
+  end
   
   def new
     @open_order_file = OpenOrderFile.new
@@ -14,8 +18,8 @@ class OpenOrderFilesController < ApplicationController
       if import_orders(@open_order_file)
         flash[:notice] = "Wczytano nowe zamówienia"
         @open_order_file.remove_file!
-        @open_order_file.destroy
-        redirect_to orders_path #TODO zmień przekierowanie
+        # @open_order_file.destroy
+        redirect_to open_order_files_path #TODO zmień przekierowanie
 
       else
         @open_order_file.remove_file!

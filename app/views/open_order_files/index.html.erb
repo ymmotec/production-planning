@@ -1,0 +1,24 @@
+<h3>Historia otwartych zamówień IKEA</h3>
+
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Data stanu magazynowego</th>
+            <th>Plik</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @open_order_files.each do |open_order_file| %>
+        <tr>
+            <td><%= open_order_file.id %></td>
+            <td><%= open_order_file.open_orders_date %></td>
+            <td><%= open_order_file.open_orders.count %></td>
+            <td><%= link_to  "Pokaż", open_order_file_path(open_order_file), class: "btn btn-default btn-xs" %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+

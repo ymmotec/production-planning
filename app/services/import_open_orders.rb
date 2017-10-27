@@ -13,7 +13,7 @@ class ImportOpenOrders
         if is_valid?
             licznik = 0
             @data_to_import.each do |row|
-                open_order = OpenOrder.where(order: row['Order']).first
+                open_order = OpenOrder.where(order: row['Order']).where(open_order_file_id: @order_file_object.id).first
                 open_order ||= create_new_order(row['Order'], @order_file_object.id)
                 
                 product = find_or_create_new_product(customer_id_number: row['Art No'], name: row['IKEA Desc'])
@@ -28,7 +28,7 @@ class ImportOpenOrders
                 open_order_detail.orig_date = row['Orig Date']
                 open_order_detail.bal_qty = row['Bal Qty']
                 open_order_detail.sl = row['SL']
-                open_order_detail.type = row['Type']
+                open_order_detail.mtype = row['Type']
                 open_order_detail.bkd_qty = row['Bkd Qty']
                 open_order_detail.save
                 licznik += 1
