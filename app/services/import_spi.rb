@@ -13,7 +13,7 @@ class ImportSpi
     def call
         if is_valid?
             import_spi_info
-            # import_spi_data
+            import_spi_data
         end
         return true
     end
@@ -39,11 +39,23 @@ class ImportSpi
             spi_info.sales_forecast = row['Sales Forecast 52 weeks']
             spi_info.supply_plan = row['Supply Plan 52 weeks']
             spi_info.save
+
         end
     end
 
     def import_spi_data
-
+        @data_to_import.each do |row|
+            product = find_or_create_new_product(customer_id_number: row['Art No.'], name: row['Art Name'])
+            weeks = @data_to_import.headers.last(52)
+            weeks.each do |week|
+                spi = Spi.new
+                spi.week = week
+                spi.qty = row[week]
+                spi.product = product
+                spi.spi_file = @file_object
+                spi.save
+            end
+        end
     end
 
 end

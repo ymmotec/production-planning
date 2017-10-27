@@ -37,6 +37,7 @@ class SpiFilesController < ApplicationController
       return false
     rescue ActiveRecord::AssociationTypeMismatch => e
       @error_message = e.message
+      return false
     rescue => e
       @error_message = e.message
       return false
