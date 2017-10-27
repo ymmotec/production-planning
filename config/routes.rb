@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  
+  resources :spi_files
   resources :open_order_files
   resources :com40s
   resources :com40_files

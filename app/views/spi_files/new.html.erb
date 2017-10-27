@@ -1,0 +1,8 @@
+<h3>Wczytaj plik SPI</h3>
+
+<%= simple_form_for @spi_file do |f| %>
+    <%= f.input :spi_date, label: "Data SPI" %>
+    <%= f.input :name, label: "Tytuł SPI: np: 201739" %>
+    <%= f.input :file, label: "Wybierz plik", input_html: {accept: ".csv"} %>
+    <%= f.button :submit, "Zapisz plik", class: "btn btn-primary" %>
+<% end %>
