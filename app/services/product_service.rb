@@ -19,5 +19,11 @@ module ProductService
         product.save
         product
     end
+
+    def create_new_product_family(product_family_name)
+        product_family = ProductFamily.new
+        product_family.name = product_family_name
+        product_family.save
+    end
     
 end
