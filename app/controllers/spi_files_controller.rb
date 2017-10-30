@@ -2,6 +2,10 @@ class SpiFilesController < ApplicationController
   def index
     @spi_files = SpiFile.all
   end
+
+  def show
+    @spi_file = SpiFile.find(params[:id])
+  end
   
   def new
     @spi_file = SpiFile.new
@@ -53,6 +57,6 @@ class SpiFilesController < ApplicationController
   
 
   def spi_files_params
-    params.require(:spi_file).permit(:file, :spi_date)
+    params.require(:spi_file).permit(:file, :spi_date, :name)
   end
 end

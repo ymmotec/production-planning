@@ -1,2 +1,23 @@
-<h1>SpiFile#index</h1>
-<p>Find me in app/views/spi_file/index.html.erb</p>
+<h3>Lista prognoz IKEA</h3>
+
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Data</th>
+            <th>Plik</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @spi_files.each do |spi_file| %>
+            <tr>
+                <td><%= spi_file.id %></td>
+                <td><%= spi_file.spi_date %></td>
+                <td><%= spi_file.file%></td>
+                <td><%= link_to  "Pokaż", spi_file_path(spi_file), class: "btn btn-default btn-xs" %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
