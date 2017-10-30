@@ -1,2 +1,24 @@
-<h1>OrderFiles#index</h1>
-<p>Find me in app/views/order_files/index.html.erb</p>
+<h3>Historia zamówień IKEA</h3>
+
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Data wczytania pliku</th>
+            <th>Ilość zamówień</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @order_files.each do |order_file| %>
+            <tr>
+                <td><%= order_file.id %></td>
+                <td><%= order_file.order_date %></td>
+                <td><%= order_file.orders.count %></td>
+                <td><%= link_to  "Pokaż", order_file_path(order_file), class: "btn btn-default btn-xs" %></td>
+            </tr>
+
+        <% end %>
+    </tbody>
+</table>

@@ -7,6 +7,10 @@ class OrderFilesController < ApplicationController
     @order_file = OrderFile.new
   end
 
+  def show
+    @order_file = OrderFile.find(params[:id])
+  end
+
   def create
     @order_file = OrderFile.new(order_files_params)
     if @order_file.save
@@ -15,7 +19,7 @@ class OrderFilesController < ApplicationController
         flash[:notice] = "Wczytano nowe zamówienia"
         @order_file.remove_file!
         # @order_file.destroy
-        redirect_to orders_path
+        redirect_to order_file_path(@order_file)
       else
         @order_file.remove_file!
         @order_file.save

@@ -1,0 +1,33 @@
+<h3>Lista zamówień z dnia <%= @order_file.order_date %></h3>
+
+
+<table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Numer zamówienia</th>
+                <th>Data wpłynięcia zamówienia</th>
+                <th>Produkt</th>
+                <th>Numer klienta</th>
+                <th>Ilość</th>
+                <th>Tydzień wysyłki</th>
+                <th>Data wysyłki</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @order_file.orders.each do |order| %>
+            <% order.order_details.each do |order_detail| %>
+                <tr>
+                    <td><%= order_detail.order.order %></td>
+                    <td><%= order_detail.order.order_file.order_date %></td>
+                    <td><%= order_detail.product.name %></td>
+                    <td><%= order_detail.product.customer_id_number %></td>
+                    <td><%= order_detail.orig_qty %></td>
+                    <td><%= order_detail.orig_week %></td>
+                    <td><%= order_detail.orig_date %></td>
+                </tr>
+                <% end %>
+            <% end %>
+        </tbody>
+    </table>
+    
+    

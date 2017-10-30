@@ -15,10 +15,8 @@ class ImportOrder
     def call
         if is_valid?
             import_orders
-            
-            end
-            return true
         end
+        return true
     end
 
     private
@@ -29,13 +27,13 @@ class ImportOrder
 
     def import_orders
         @data_to_import.each do |row|
-            o = Order.where(order: row['Order']).where(order_file_id: @order_file_object.id).first
-            o ||= create_new_order(row['Order'], @order_file_object.id)
+            order = Order.where(order: row['Order']).where(order_file_id: @order_file_object.id).first
+            order ||= create_new_order(row['Order'], @order_file_object.id)
             
             product = find_or_create_new_product(customer_id_number: row['Art No'], name: row['IKEA Desc'])
   
             order_details = OrderDetail.new
-            order_details.order = o
+            order_details.order = order
             order_details.product = product
             order_details.rcv = row['Rcv']
             order_details.cty = row['Cty']
@@ -43,6 +41,7 @@ class ImportOrder
             order_details.orig_qty = row['Orig Qty']
             order_details.orig_date = row['Orig Date']
             order_details.save
+        end
     end
 
     def create_new_order(order_number, order_file_id)
