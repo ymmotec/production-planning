@@ -5,6 +5,7 @@ class SpiFilesController < ApplicationController
 
   def show
     @spi_file = SpiFile.find(params[:id])
+    @weeks = get_weeks(spi_file: @spi_file)
   end
   
   def new
@@ -26,6 +27,16 @@ class SpiFilesController < ApplicationController
         render action: 'new'
       end
     end
+  end
+
+
+  def get_weeks(spi_file:)
+    product = spi_file.spi_infos.first.product
+    weeks = Array.new
+    spi_file.spis.where(product: product).each do |spi|
+      weeks << spi.week
+    end
+    return weeks
   end
 
 

@@ -32,7 +32,7 @@ class ImportSpi
             spi_info.spi_file = @file_object
             spi_info.art_status = row['Art Status']
             spi_info.store_assets = row['Store Assets']
-            spi_info.dc_stock = row['Dc Stock']
+            spi_info.dc_stock = row['DC Stock']
             spi_info.safety_stock = row['Safety Stock']
             spi_info.in_transit = row['in Transit']
             spi_info.open_orders = row['Open Orders']

@@ -1,1 +1,44 @@
-<h3>Dane prognozy <%= @spi_file.name %></h3>
+<h3>Dane prognozy - <%= @spi_file.name %></h3>
+
+<style>
+        #tableWrapper {
+            overflow-x: auto;
+            table-layout: fixed;
+            min-width: 100%;
+        }
+</style>
+
+<div id="tablewrapper"></div>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Numer IKEA</th>
+                <th>Nazwa produktu</th>
+                <th>Status</th>
+                <th>Store assets</th>
+                <th>DC stock</th>
+                <th>Safety stock</th>
+                <th>In Transit</th>
+                <th>Open orders</th>
+                <th>Sales forecast</th>
+                <th>Supply plan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @spi_file.spi_infos.each do |spi_info| %>
+                <tr>
+                    <td><%= spi_info.product.customer_id_number %></td>
+                    <td><%= spi_info.product.name %></td>
+                    <td><%= spi_info.art_status %></td>
+                    <td><%= spi_info.store_assets %></td>
+                    <td><%= spi_info.dc_stock %></td>
+                    <td><%= spi_info.safety_stock %></td>
+                    <td><%= spi_info.in_transit %></td>
+                    <td><%= spi_info.open_orders %></td>
+                    <td><%= spi_info.sales_forecast %></td>
+                    <td><%= spi_info.supply_plan %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
