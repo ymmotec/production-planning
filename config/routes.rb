@@ -27,6 +27,10 @@ Rails.application.routes.draw do
     member do
       get :add_element
     end
+
+    collection do
+      get :only_new
+    end
   end
   resources :machines
 

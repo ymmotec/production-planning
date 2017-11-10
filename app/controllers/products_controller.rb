@@ -2,7 +2,13 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :destroy ]
   
   def index
-    @products = Product.all
+    # @products = Product.all
+    @products = Product.page(params[:page]).per(50)
+  end
+
+  def only_new
+    @products = Product.where(internal_id_number: "Brak").page(params[:page]).per(50)
+    render action: "index"
   end
 
   def new
@@ -51,7 +57,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :customer_id_number, :internal_id_number, :color, :quantity_on_palet, :product_family_id )
+    params.require(:product).permit(:name, :customer_id_number, :internal_id_number, :color, :quantity_on_palet, :product_family_id, :page )
   end
   
 
