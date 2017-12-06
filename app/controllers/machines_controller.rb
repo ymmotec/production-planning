@@ -33,6 +33,10 @@ class MachinesController < ApplicationController
 
   def show
     @machine = Machine.find(params[:id])
+    @spis = Spi.where(spi_file_id: SpiFile.last).all
+    # @spis = Spi.where(spi_file_id: 27).all
+    @current_week_num = Time.now.year.to_s + Time.now.strftime('%W').to_s
+    @order_details = OrderDetail.all
   end
 
   def machine_params

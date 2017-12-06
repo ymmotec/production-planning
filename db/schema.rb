@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171027075042) do
+ActiveRecord::Schema.define(version: 20171206105506) do
 
   create_table "com40_files", force: :cascade do |t|
     t.string "file"
@@ -133,6 +133,15 @@ ActiveRecord::Schema.define(version: 20171027075042) do
     t.integer "max_production"
     t.integer "min_stock"
     t.integer "max_stock"
+    t.integer "lack_group"
+    t.integer "size"
+    t.integer "palet_size"
+    t.string "status"
+    t.integer "max_orders_per_week"
+    t.integer "lead_time"
+    t.integer "average_spi"
+    t.integer "average_sale"
+    t.integer "average_order_qty"
   end
 
   create_table "spi_files", force: :cascade do |t|

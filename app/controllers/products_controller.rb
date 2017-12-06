@@ -2,7 +2,6 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :destroy ]
   
   def index
-    # @products = Product.all
     @products = Product.page(params[:page]).per(50)
   end
 

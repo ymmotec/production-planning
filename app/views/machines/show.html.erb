@@ -4,3 +4,51 @@
 <p>Czasy uzupełniające: <%= display_as_percent(@machine.aditional_times) %></p>
 <p>Czasy awarii: <%= display_as_percent(@machine.down_times) %></p>
 <%= link_to  "Powrót do listy maszyn", machines_path, class: "btn btn-primary" %>
+
+
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th colspan="3"></th>
+            <th class="text-center" colspan="2"><%= @current_week_num %></th>
+            <th class="text-center" colspan="2"><%= @current_week_num.to_i + 1 %></th>
+            <th class="text-center" colspan="2"><%= @current_week_num.to_i + 2 %></th>
+            <th class="text-center" colspan="2"><%= @current_week_num.to_i + 3 %></th>
+        </tr>
+        <tr>
+            <th>Produkt</th>
+            <th>Element</th>
+            <th>Operacja</th>
+            <th>SPI</th>
+            <th>Zam</th>
+            <th>SPI</th>
+            <th>Zam</th>
+            <th>SPI</th>
+            <th>Zam</th>
+            <th>SPI</th>
+            <th>Zam</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @machine.elements.each do |element| %>
+        <tr>
+            <td><%= element.product.name %></td>
+            <td><%= element.name %></td>
+            <td><%= element.operations.where(machine: @machine).first.name %></td>
+
+            <td><%= @spis.where(week: @current_week_num).where(product_id: element.product.id).first.present? ? @spis.where(week: @current_week_num).where(product_id: element.product.id).first.qty : 0 %></td>
+            <td><%= @order_details.where(product: element.product).where(orig_week: @current_week_num).first.present? ? @order_details.where(product: element.product).where(orig_week: @current_week_num).sum(:orig_qty) : 0 %></td>
+
+            <td><%= @spis.where(week: @current_week_num.to_i + 1).where(product: element.product).first.present? ? @spis.where(week: @current_week_num.to_i + 1).where(product_id: element.product.id).first.qty : 0 %></td>
+            <td><%= @order_details.where(product: element.product).where(orig_week: @current_week_num.to_i + 1).first.present? ? @order_details.where(product: element.product).where(orig_week: @current_week_num.to_i + 1).sum(:orig_qty) : 0 %></td>
+            
+            <td><%= @spis.where(week: @current_week_num.to_i + 2).where(product: element.product).first.present? ? @spis.where(week: @current_week_num.to_i + 2).where(product_id: element.product.id).first.qty : 0 %></td>
+            <td><%= @order_details.where(product: element.product).where(orig_week: @current_week_num.to_i + 2).first.present? ? @order_details.where(product: element.product).where(orig_week: @current_week_num.to_i + 2).sum(:orig_qty) : 0 %></td>
+
+            <td><%= @spis.where(week: @current_week_num.to_i + 3).where(product: element.product).first.present? ? @spis.where(week: @current_week_num.to_i + 3).where(product_id: element.product.id).first.qty : 0 %></td>
+            <td><%= @order_details.where(product: element.product).where(orig_week: @current_week_num.to_i + 3).first.present? ? @order_details.where(product: element.product).where(orig_week: @current_week_num.to_i + 3).sum(:orig_qty) : 0 %></td>
+            
+        </tr>
+        <% end %>
+    </tbody>
+</table>
