@@ -56,7 +56,23 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :customer_id_number, :internal_id_number, :color, :quantity_on_palet, :product_family_id, :page )
+    params.require(:product).permit(:name, 
+      :customer_id_number, 
+      :internal_id_number, :color, 
+      :quantity_on_palet, 
+      :product_family_id, 
+      :page, :min_production, 
+      :max_production, :min_stock, 
+      :max_stock, 
+      :lack_group, 
+      :size, 
+      :palet_size, 
+      :status, 
+      :max_orders_per_week, 
+      :lead_time, 
+      :average_spi, 
+      :average_sale, 
+      :average_order_qty )
   end
   
 

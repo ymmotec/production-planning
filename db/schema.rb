@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206105506) do
+ActiveRecord::Schema.define(version: 20171206140339) do
+
+  create_table "Products", force: :cascade do |t|
+    t.string "name"
+    t.integer "customer_id_number"
+    t.string "internal_id_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "color"
+    t.integer "quantity_on_palet"
+    t.integer "product_family_id"
+    t.integer "min_production"
+    t.integer "max_production"
+    t.integer "min_stock"
+    t.integer "max_stock"
+    t.integer "lack_group"
+    t.string "size"
+    t.decimal "palet_size"
+    t.string "status"
+    t.integer "max_orders_per_week"
+    t.integer "lead_time"
+    t.integer "average_spi"
+    t.integer "average_sale"
+    t.integer "average_order_qty"
+  end
 
   create_table "com40_files", force: :cascade do |t|
     t.string "file"
@@ -118,30 +142,6 @@ ActiveRecord::Schema.define(version: 20171206105506) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.integer "customer_id_number"
-    t.string "internal_id_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "color"
-    t.integer "quantity_on_palet"
-    t.integer "product_family_id"
-    t.integer "min_production"
-    t.integer "max_production"
-    t.integer "min_stock"
-    t.integer "max_stock"
-    t.integer "lack_group"
-    t.integer "size"
-    t.integer "palet_size"
-    t.string "status"
-    t.integer "max_orders_per_week"
-    t.integer "lead_time"
-    t.integer "average_spi"
-    t.integer "average_sale"
-    t.integer "average_order_qty"
   end
 
   create_table "spi_files", force: :cascade do |t|

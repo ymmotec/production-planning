@@ -1,7 +1,7 @@
 class AddColumnsToProduct < ActiveRecord::Migration[5.1]
   def change
     add_column :products, :lack_group, :integer
-    add_column :products, :size, :integer
+    add_column :products, :size, :string
     add_column :products, :palet_size, :integer
     add_column :products, :status, :string
     add_column :products, :max_orders_per_week, :integer

@@ -1,13 +1,29 @@
+<div class="row">
+     
 <%= simple_form_for @product do |f| %>
+    
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    
     <%= f.input :name, label: "Nazwa produktu" %>
     <%= f.association :product_family %>
     <%= f.input :customer_id_number, label: "Numer klienta" %>
     <%= f.input :internal_id_number, label: "Numer swing" %>
+    <%= f.input :size, label: "Wymiary" %>
     <%= f.input :color, label: "Kolor" %>
+    <%= f.input :lack_group, label: "Grupa koloru na lakierni"%>
+    
+    </div>
+    
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
     <%= f.input :quantity_on_palet, label: "Ilość na palecie" %>
+    <%= f.input :palet_size, label: "Wielkość palety" %>
+    <%= f.input :max_orders_per_week, label: "Maksymalna ilość zamówień w tygodniu" %>
+    <%= f.input :lead_time, label: "Czas przejścia w zmianach" %>
     <%= f.input :min_production, label: "Minimalna partia produkcyjna" %>
     <%= f.input :max_production, label: "Maksymalna partia produkcyjna" %>
     <%= f.input :min_stock, label: "Minimalny zapas magazynowy" %>
     <%= f.input :max_stock, label: "Maksymalny zapas magazynowy" %>
+    </div>
+
     <%= f.button :submit, 'Zapisz', class: "btn btn-primary" %> <%= link_to  "Anuluj", products_path, class: "btn btn-success" %>
-<% end %>
+<% end %></div>
