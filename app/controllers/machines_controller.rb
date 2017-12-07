@@ -41,6 +41,6 @@ class MachinesController < ApplicationController
 
   def machine_params
     #TODO zmienić parametry permit
-    params.require(:machine).permit(:name, :factory, :aditional_times, :down_times )    
+    params.require(:machine).permit(:name, :factory, :OEE )    
   end
 end

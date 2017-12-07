@@ -12,8 +12,7 @@ Zaloguj się by dodać maszyny
                 <th>#</th>
                 <th>Nazwa maszyny</th>
                 <th>Fabryka</th>
-                <th>Czasy uzupełniające</th>
-                <th>Czasy awarii</th>
+                <th>Wskaźnik OEE</th>
                 <th>Akcje</th>
             </tr>
         </thead>
@@ -30,10 +29,7 @@ Zaloguj się by dodać maszyny
                         <%= machine.factory %>
                     </td>
                     <td>
-                        <%= display_as_percent(machine.aditional_times) %>
-                    </td>
-                    <td>
-                        <%= display_as_percent(machine.down_times) %>
+                        <%= machine.OEE.present? ? display_as_percent(machine.OEE) : 0 %>
                     </td>
                     <td>
                         <%= link_to  "Pokaż", machine_path(machine), class: "btn btn-default btn-xs" %>

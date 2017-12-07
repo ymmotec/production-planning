@@ -1,8 +1,7 @@
 <h3>Nazwa maszyny: <%= @machine.name %></h3>
 
 <p>Fabryka: <%= @machine.factory %></p>
-<p>Czasy uzupełniające: <%= display_as_percent(@machine.aditional_times) %></p>
-<p>Czasy awarii: <%= display_as_percent(@machine.down_times) %></p>
+<p>Wskaźnik OEE: <%= display_as_percent(@machine.OEE) %></p>
 <%= link_to  "Powrót do listy maszyn", machines_path, class: "btn btn-primary" %>
 
 
