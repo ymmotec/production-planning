@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   resources :product_families
   resources :stock
   resources :stock_files
-
+  resources :plans do
+    member do
+      get :generate
+    end
+  end
   resources :operations
 
   devise_for :users

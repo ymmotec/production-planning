@@ -1,0 +1,44 @@
+<h3>Plany produkcyjne</h3>
+
+<% if user_signed_in? %>
+    <p><%= link_to  "Utwórz nowy plan produkcji", new_plan_path, class: "btn btn-success" %></p>
+<% else %>
+    <p>Zaloguj się by dodać plan produkcji.</p>
+<% end %>
+
+<%= paginate @plans, outer_window: 2 %>
+
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Numer planu</th>
+            <th>Data utworzenia</th>
+            <th>Data ostatniej modyfikacji</th>
+            <th>Data realizacji</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @plans.each do |plan| %>
+        <tr>
+            <td><%= plan.id %></td>
+            <td><%= plan.created_at %></td>
+            <td><%= plan.updated_at %></td>
+            <td><%= plan.final_date %></td>
+            <td>
+                <%= link_to  "Pokaż", plan_path(plan), class: "btn btn-default btn-xs" %>
+                <% if user_signed_in? %>
+                    <%= link_to  "Edytuj", edit_plan_path(plan), class: "btn btn-primary btn-xs" %>
+                    <%= link_to  "Usuń", plan_path(plan), method: :delete, class: "btn btn-danger btn-xs" %>
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+
+
+
+<%= paginate @plans, outer_window: 2 %>

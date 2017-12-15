@@ -1,0 +1,29 @@
+<h3>Plan produkcji. Termin realizacji <%= @plan.final_date %></h3>
+
+<% if @plan.production_orders.first == nil %>
+    <%= link_to  "Generuj plan produkcji", generate_plan_path(@plan.id), class: "btn btn-success" %>
+<% end %>
+
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Numer Ikea</th>
+            <th>Numer SWING</th>
+            <th>Nazwa produktu</th>
+            <th>Status zamówienia</th>
+            <th>Ilość</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @plan.production_orders.each do |production_order| %>
+            <tr>
+                <td><%= production_order.product.customer_id_number %></td>
+                <td><%= production_order.product.internal_id_number %></td>
+                <td><%= production_order.product.name %></td>
+                <td><%= production_order.status %></td>
+                <td><%= production_order.ordered_qty %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

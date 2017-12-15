@@ -1,0 +1,5 @@
+<%= simple_form_for @plan do |f| %>
+    <%= f.input :final_date, label: "Końcowa data realizacji" %>
+
+    <%= f.button :submit, 'Zapisz', class: "btn btn-primary" %><%= link_to  "Anuluj", plans_path, class: "btn btn-success" %>
+<% end %>

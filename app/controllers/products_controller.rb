@@ -6,7 +6,8 @@ class ProductsController < ApplicationController
   end
 
   def only_new
-    @products = Product.where(internal_id_number: "Brak").page(params[:page]).per(50)
+    @products = Product.where(
+      internal_id_number: "Brak").page(params[:page]).per(50)
     render action: "index"
   end
 

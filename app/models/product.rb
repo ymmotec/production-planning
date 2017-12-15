@@ -9,6 +9,8 @@ class Product < ApplicationRecord
     has_many :open_order_details
     has_many :spis
     has_many :spi_infos
+    has_many :production_orders
+    has_many :plans, :through => :production_orders
 
     belongs_to :product_family
     
